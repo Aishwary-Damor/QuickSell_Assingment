@@ -57,6 +57,16 @@ const KanbanBoard = () => {
           <option value="priority">Sort by Priority</option>
           <option value="title">Sort by Title</option>
         </select>
+      <img 
+          src={othericons.add?.icon}
+          alt={othericons.add?.label || 'Unknown Status'}
+          style={{ width: '35px', height: '35px', marginLeft: '100%', position:'relative'}}
+      />
+      <img
+          src={othericons.menu?.icon}
+          alt={othericons.menu?.label || 'Unknown Status'}
+          style={{ width: '35px', height: '35px', marginLeft: '0.5px' }}
+      />
       </div>
       <div className="columns">
         {Object.entries(groupedTickets).map(([key, group]) => (
@@ -71,16 +81,6 @@ const KanbanBoard = () => {
                   />
                   {statusIcons[key]?.label || key}
                   <span className="ticket-count">({getTicketCount(groupedTickets[key])})</span>
-                  <img
-                      src={othericons.add?.icon}
-                      alt={othericons.add?.label || 'Unknown Status'}
-                      style={{ width: '15px', height: '15px', marginLeft: '60%', position:'relative'}}
-                  />
-                  <img
-                      src={othericons.menu?.icon}
-                      alt={othericons.menu?.label || 'Unknown Status'}
-                      style={{ width: '15px', height: '15px', marginLeft: '0.5px' }}
-                  />
                 </div>
               ) : grouping === 'priority' ? (
                 <div className="icon-header">
@@ -91,16 +91,6 @@ const KanbanBoard = () => {
                   />
                   {priorityIcons[key]?.label || 'Unknown'}
                   <span className="ticket-count">({getTicketCount(groupedTickets[key])})</span>
-                  <img
-                      src={othericons.add?.icon}
-                      alt={othericons.add?.label || 'Unknown Status'}
-                      style={{ width: '15px', height: '15px', marginLeft: '250px', position:'relative'}}
-                  />
-                  <img
-                      src={othericons.menu?.icon}
-                      alt={othericons.menu?.label || 'Unknown Status'}
-                      style={{ width: '15px', height: '15px', marginLeft: '2.5px' }}
-                  />
                 </div>
               ) : (
                 key
